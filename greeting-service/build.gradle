@@ -1,3 +1,4 @@
+
 plugins {
     id "java"
     id "idea"
@@ -70,12 +71,23 @@ dependencies {
     testAnnotationProcessor "io.micronaut:micronaut-inject-java"
     
     // Spock
-//    testAnnotationProcessor "io.micronaut:micronaut-inject-java"
-//    testImplementation "io.micronaut:micronaut-runtime"
-//    testImplementation "io.micronaut:micronaut-inject-groovy"
-//    
-//    testImplementation "org.spockframework:spock-spring:1.2-groovy-2.5"
-//    testImplementation "org.springframework:spring-test:5.2.3.RELEASE"
+	testImplementation "cglib:cglib-nodep:3.3.0"
+	testImplementation "org.objenesis:objenesis:3.1"
+
+	testImplementation "io.micronaut:micronaut-inject-groovy:1.3.3"
+	testImplementation "io.micronaut.test:micronaut-test-spock"
+	testImplementation("org.spockframework:spock-core:1.2-groovy-2.5") {
+		exclude module:'groovy-all'
+	}
+	testImplementation "org.codehaus.groovy:groovy-test:2.5.10"
+	testRuntimeOnly "ch.qos.logback:logback-classic:1.2.3"
+	
+	////
+    testImplementation "io.micronaut:micronaut-runtime"
+    testImplementation "io.micronaut:micronaut-inject-groovy"
+    
+    testImplementation "org.spockframework:spock-spring:1.2-groovy-2.5"
+    testImplementation "org.springframework:spring-test:5.2.3.RELEASE"
 }
 
 compileJava.options.compilerArgs += '-parameters'

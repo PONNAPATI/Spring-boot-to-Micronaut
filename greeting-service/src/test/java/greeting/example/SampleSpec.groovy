@@ -1,5 +1,9 @@
 package greeting.example
 
+import javax.inject.Inject
+import io.micronaut.test.annotation.MicronautTest
+import spock.lang.Specification
+
 @MicronautTest
 class SampleSpec extends Specification {
 
